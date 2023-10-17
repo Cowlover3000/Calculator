@@ -30,17 +30,17 @@ function operate(num1, num2, operator){
             total = add(num1, num2);
             break;
         case "-":
-            minus(num1, num2);
+            total = minus(num1, num2);
             break;
         case "/":
             try {
-                division(num1, num2)
+                total = division(num1, num2)
             } catch (error) {
                 console.error(error);
             }
             break;
         case "*":
-            multiply(num1, num2);
+            total = multiply(num1, num2);
             break;
         default:
             break;
@@ -51,6 +51,9 @@ function populate(text){
     const screen = document.querySelector("#screen");
     if (operator != "" && num != "" && displayValue == "") {
         screen.textContent = "";
+    } else if (text == "AC"){
+        screen.textContent = "";
+        text = "";
     }
     screen.textContent += text;
     displayValue = screen.textContent;
@@ -79,6 +82,12 @@ keys.forEach((key) => {
             operate(parseInt(num), parseInt(displayValue), operator)
             displayValue = "";
             populate(total);
+        } else {
+            displayValue = "";
+            num = "";
+            total = 0;
+            operator = "";
+            populate("AC");
         }
     })
     
