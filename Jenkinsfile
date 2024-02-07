@@ -8,15 +8,5 @@ pipeline {
                 sh 'pwd'
             }
         }
-        stage('Test') {
-            steps {
-                // Test steps here
-            }
-        }
-        stage('Deploy') {
-            steps {
-                // Deployment steps here
-            }
-        }
     }
 }
